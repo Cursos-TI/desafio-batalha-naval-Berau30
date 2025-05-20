@@ -41,9 +41,55 @@ int main() {
         printf("\n");
     }
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
+    #include <stdio.h>
+
+#define LetrasLinhas 10
+#define AguaLinha 10
+#define AguaColuna 10
+
+    char letras[LetrasLinhas] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+    int agua[AguaLinha][AguaColuna];
+
+    
+    for (int i = 0; i < AguaLinha; i++) {
+        for (int j = 0; j < AguaColuna; j++) {
+            agua[i][j] = 0;
+        }
+    }
+
+    
+    for (int i = 0; i < 3; i++) {
+        agua[4][1 + i] = 3;
+    }
+
+    
+    for (int i = 0; i < 3; i++) {
+        agua[7 + i][8] = 3;
+    }
+    
+    for (int i = 0; i < 3; i++)
+    {
+        agua[i][4-i] = 3;
+    }
+
+    for (int i = 0; i < 3; i++)
+    {
+        agua[8-i][4-i] = 3;
+    }
+    
+    printf("  ");
+    for (int i = 0; i < LetrasLinhas; i++) {
+        printf("%c ", letras[i]);
+    }
+    printf("\n");
+
+    for (int i = 0; i < AguaLinha; i++) {
+        printf("%d ", i);
+        for (int j = 0; j < AguaColuna; j++) {
+            printf("%d ", agua[i][j]);
+        }
+        printf("\n");
+    }
 
     // Nível Mestre - Habilidades Especiais com Matrizes
     // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
